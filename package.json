@@ -6,7 +6,9 @@
     "directories": {
         "example": "examples"
     },
-    "dependencies": {},
+    "dependencies": {
+        "crypto-js": "^4.0.0"
+    },
     "devDependencies": {
         "grunt": "^1.0",
         "grunt-check-modules": "^1.0.0",

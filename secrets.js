@@ -563,6 +563,9 @@
             for (i = 0, len = shares.length; i < len; i++) {
                 share = this.extractShareComponents(shares[i])
 
+                console.log('i ', i)
+                console.log('share ', share)
+
                 // All shares must have the same bits settings.
                 if (setBits === undefined) {
                     setBits = share.bits
