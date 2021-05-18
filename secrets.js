@@ -990,15 +990,26 @@
                     "Zero-pad length must be an integer between 0 and 1024 inclusive."
                 )
             }
-
             secret = "1" + hex2bin(secret) // prepend a 1 as a marker so that we can preserve the correct number of leading zeros in our secret
             secret = splitNumStringToIntArray(secret, padLength)
 
             for (i = 0, len = secret.length; i < len; i++) {
+                console.log('i', i)
+                console.log('numShares', numShares)
+                console.log('threshold', threshold)
+                console.log('secret[i]', secret[i])
+
                 subShares = getShares(secret[i], numShares, threshold)
+
+                console.log('subShares', subShares)
                 for (j = 0; j < numShares; j++) {
+                    console.log('j ', j)
                     x[j] = x[j] || subShares[j].x.toString(config.radix)
                     y[j] = padLeft(subShares[j].y.toString(2)) + (y[j] || "")
+
+                    console.log('x[j] ', x[j])
+
+                    console.log('y[j] ', y[j])
                 }
             }
 
@@ -1008,6 +1019,8 @@
                     x[i],
                     bin2hex(y[i])
                 )
+
+                console.log('cons. pub. share str x[i]', x[i])
             }
 
             return x
